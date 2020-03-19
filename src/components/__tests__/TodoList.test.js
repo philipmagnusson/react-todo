@@ -6,23 +6,23 @@ import TodoList from '../TodoList';
 jest.mock('../TodoItem', () => todoItem => <div>{todoItem}</div>);
 
 const TODO_ITEMS = [
-	{
-		itemKey: 1,
-		itemText: 'brush teeth',
-	},
-	{
-		itemKey: 2,
-		itemText: 'wash face',
-	},
-	{
-		itemKey: 3,
-		itemText: 'go to bed',
-	},
+  {
+    itemKey: 1,
+    itemText: 'brush teeth',
+  },
+  {
+    itemKey: 2,
+    itemText: 'wash face',
+  },
+  {
+    itemKey: 3,
+    itemText: 'go to bed',
+  },
 ];
 
 //afterEach(cleanup);
 
 // Test needs to be fixed..
 it.skip('renders todoItems', () => {
-	expect(TestRenderer.create(<TodoList todoItems={TODO_ITEMS} />).toJSON).toMatchSnapshot();
+  expect(TestRenderer.create(<TodoList todoItems={TODO_ITEMS} />).toJSON).toMatchSnapshot();
 });
