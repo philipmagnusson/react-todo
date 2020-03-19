@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
-import TodoList from './TodoList';
+import PaginatedTodoList from './PaginatedTodoList';
 
 const FilterSelector = props => {
   const { filters, activeFilter, onSelectFilter } = props;
@@ -40,13 +40,16 @@ const FilteredTodoList = props => {
   const todoItemsCount = todoItems.length;
   const filteredTodoItems = filterItems(todoItems, activeFilter);
 
+  // I would want to throw in whatever list here but I don't know how to do that because
+  // the items are controlled by this component, maybe higher order component, haven't looked into that.
   return (
     <div>
       <div className="my-2">
-        <TodoList
+        <PaginatedTodoList
           todoItems={filteredTodoItems}
           onSetDoneTodoItem={(todoItem, isDone) => props.onSetDoneTodoItem(todoItem, isDone)}
           onRemoveTodoItem={todoItem => props.onRemoveTodoItem(todoItem)}
+          pageSize={props.pageSize}
         />
       </div>
       {todoItemsCount > 0 && (
@@ -64,4 +67,4 @@ const FilteredTodoList = props => {
 };
 
 export default FilteredTodoList;
-export { FILTERS };
+export { FILTERS, FilterSelector };
