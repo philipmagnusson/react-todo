@@ -1,0 +1,10 @@
+button {
+	background-color: transparent;
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+.todo-item-done {
+	text-decoration: line-through;
+}
